@@ -10,7 +10,7 @@ cd mastering-chrome-devtools
 npm install
 npm start
 ```
-d
+
 ## About
 
 This site is designed as teaching aid for my "Mastering Chrome DevTools" workshops but I hope it will stand fine on its own.
