@@ -42,17 +42,18 @@ function init() {
 function move() {
   for (let i = 0; i < allLogos.length; i++) {
     let currentLogo = allLogos[i];
-    let currentLogoPosition = currentLogo.classList.contains("down")
-      ? currentLogo.offsetTop + distance
-      : currentLogo.offsetTop - distance;
+    let currentLogoPosition = parseInt(currentLogo.style.top.slice(0,currentLogo.style.top.indexOf("px")))
+    currentLogo.classList.contains("down")
+      ? (currentLogoPosition += distance)
+      : (currentLogoPosition +- distance);
     if (currentLogoPosition < 0) currentLogoPosition = 0;
     if (currentLogoPosition > maxHeight) currentLogoPosition = maxHeight;
     currentLogo.style.top = currentLogoPosition + "px";
-    if (currentLogo.offsetTop === 0) {
+    if (currentLogoPosition === 0) {
       currentLogo.classList.remove("up");
       currentLogo.classList.add("down");
     }
-    if (currentLogo.offsetTop === maxHeight) {
+    if (currentLogoPosition === maxHeight) {
       currentLogo.classList.remove("down");
       currentLogo.classList.add("up");
     }
